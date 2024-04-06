@@ -88,7 +88,7 @@ class MinhaClasse:
     """Classe tal"""
     def __init__(self, user : str) -> None:
         # , 'OUM3F93', 'PGO2I86'
-        self.array : list = ['BDN1E65']
+        self.array : list = ['JRF9524']
         self.username : str = "joao_vittor"
         self.password : str = "ECO@2012"
         self.data : str = "04 de abril de 2024"
@@ -96,25 +96,23 @@ class MinhaClasse:
 
         try:
             for placa in self.array:
-                print(placa)                                                                                            #   /html/body/div[2]/div[1]/div/form/div[1]/div/div[1]
+                ## ABRE O DROPDOWN DE PLACAS             
                 WebDriverWait(chrome, 200).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[1]/div/form/div[1]/div/div[1]')))
                 chrome.find_element('xpath', '/html/body/div[2]/div[1]/div/form/div[1]/div/div[1]').click()
-                chrome.find_element('xpath', '/html/body/div[2]/div[1]/div/form/div[1]/div/div[1]/input').send_keys(placa)
-                chrome.find_element('xpath', '/html/body/div[2]/div[1]/div/form/div[1]/div/div[1]/input').send_keys(Keys.ENTER)
+                ## ABRE O DROPDOWN DE PLACAS             
+                                
+                ## ESCOLHE A PLACA
+                chrome.find_element('xpath', '/html/body/div[2]/div[1]/div/form/div[1]/div/div[1]/input').send_keys("JRF9524")
+                chrome.find_element('xpath', '/html/body/div[2]/div[1]/div/form/div[1]/div/div[1]/input').send_keys(Keys.ENTER)                
+                ## ESCOLHE A PLACA
                 
-                WebDriverWait(chrome, 200).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[1]/div/form/a')))
-                chrome.find_element('xpath', '/html/body/div[2]/div[1]/div/form/a').click()
                 
-                WebDriverWait(chrome, 200).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="main-container"]/div/div[1]/div/div[3]/div[2]')))
-                chrome.find_element('xpath', '//*[@id="main-container"]/div/div[1]/div/div[3]/div[2]').click()
                 
-                horarios = WebDriverWait(chrome, 200).until(EC.element_to_be_clickable((By.XPATH, '//*[@class="card-body"]/div[contains(@class, "travel-card")]')))
+                # WebDriverWait(chrome, 200).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[1]/div/form/a')))
+                # chrome.find_element('xpath', '/html/body/div[2]/div[1]/div/form/a').click()
                 
-                primeira_div = horarios[0]
-                ultima_div = horarios[-1]
-                
-                print(primeira_div)
-                print(ultima_div)
+                # WebDriverWait(chrome, 200).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="main-container"]/div/div[1]/div/div[3]/div[2]')))
+                # chrome.find_element('xpath', '//*[@id="main-container"]/div/div[1]/div/div[3]/div[2]').click()
               
                 
                 while True:
@@ -138,7 +136,6 @@ class MinhaClasse:
         
 if __name__ == "__main__":
     minha_instancia = MinhaClasse(user="joao")
-
     minha_instancia.imprimir_placas()
 
 input('Wait')# USO ESSE COMANDO APENAS PARA PARAR O SELENIUM E IMPEDIR QUE ELE FECHE AO DAR ERRO
